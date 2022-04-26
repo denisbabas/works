@@ -65,8 +65,23 @@ public class SandBoxStepDefinitions extends CommonMethods{
 			
 			act.add(result2.getText());
 			
-					}
-		Assert.assertEquals("!!!!!!", expect, act);
+		}Assert.assertEquals("!!!!!!", expect, act);
 		
 }
+	
+	@When("navigate {string}")
+	public void navigate(String string) throws Throwable {
+		  
+		List<WebElement>  Selections2 = sandBoxElements.menuListDropDown;
+		for(WebElement Selection : Selections2) {
+			if(Selection.getText().equalsIgnoreCase(string)) {
+				Selection.click();
+			}
+			break;
+		}
+		Thread.sleep(1000);
+	}
+
+
+
 	}

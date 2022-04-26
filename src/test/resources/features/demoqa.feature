@@ -13,6 +13,7 @@ Feature: Task2
   @Progression @Denys
   Scenario Outline: user story two
   Given select the "<selections>"
+  When navigate "Text Box"
   
    Examples: 
       | selections | 
