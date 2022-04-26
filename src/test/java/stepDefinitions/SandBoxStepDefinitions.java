@@ -73,11 +73,18 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	public void navigate(String string) throws Throwable {
 		  
 		List<WebElement>  Selections2 = sandBoxElements.menuListDropDown;
+		
+		
 		for(WebElement Selection : Selections2) {
+			
 			if(Selection.getText().equalsIgnoreCase(string)) {
+				
+				System.out.println(Selection + "!!!!!!!!");
 				Selection.click();
+				break;
 			}
-			break;
+			
+			
 		}
 		Thread.sleep(1000);
 	}
