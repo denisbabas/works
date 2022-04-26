@@ -8,3 +8,12 @@ Feature: Task2
     Examples: 
       | selections | Price | fullName | email            | currentAdress | permanentAdress |
       | Elements   |    10 | Tamara   | Tamara@gmail.com | Miami, FL     | NewYork, NY     |
+
+      
+  @Progression @Denys
+  Scenario Outline: user story two
+  Given select the "<selections>"
+  
+   Examples: 
+      | selections | 
+      | Elements   |
