@@ -1,10 +1,11 @@
 package stepDefinitions;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
-import groovyjarjarantlr4.v4.parse.BlockSetTransformer.setAlt_return;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,7 +24,6 @@ public class SandBoxStepDefinitions extends CommonMethods{
 			
 			if (selection.getText().equalsIgnoreCase(choise)) {
 				JsCommonMethods.drawRedBorder(selection);
-				System.out.println("textFromSelections = " + selection.getText());
 				
 				selection.click();
 				}
@@ -51,7 +51,22 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	
 	@Then("assert text from output {string}, {string}, {string} and {string}")
 	public void assert_text_from_output_and(String fullName, String email, String currentAdress, String permanentAdress) {
+		
+		List<String> expect = new ArrayList<String>();
+		expect.add("Name:" + fullName);
+		expect.add("Email:" + email);
+		expect.add("Current Address :" + currentAdress);
+		expect.add("Permananet Address :" + permanentAdress);
+		
+		
+		List<String> act = new ArrayList<String>();
 		List<WebElement>  result = sandBoxElements.outputFromResult;
+		for(WebElement result2:result) {
+			
+			act.add(result2.getText());
+			
+					}
+		Assert.assertEquals("!!!!!!", expect, act);
 		
 }
 	}
