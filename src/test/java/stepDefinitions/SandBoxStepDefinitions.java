@@ -78,17 +78,28 @@ public class SandBoxStepDefinitions extends CommonMethods{
 		for(WebElement Selection : Selections2) {
 			
 			if(Selection.getText().equalsIgnoreCase(string)) {
-				
-				System.out.println(Selection + "!!!!!!!!");
+		
 				Selection.click();
 				break;
-			}
-			
-			
-		}
+			}}
 		Thread.sleep(1000);
 	}
+	
+	@Then("select iconExpandClose then click on {string} and  {string} then assert text")
+	public void select_iconExpandClose_then_click_on_and_then_assert_text(String string1, String string2) {
+	    
+		click(sandBoxElements.iconExpandClose);
+	
+		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string1);
+		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string2);
+		
+		//List<WebElement> text = sandBoxElements.textFfromResult;
+	
+	}}
 
 
 
-	}
+
+
+
+	

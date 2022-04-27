@@ -14,6 +14,7 @@ Feature: Task2
   Scenario Outline: user story two
   Given select the "<selections>"
   When navigate "Check Box"
+  Then select iconExpandClose then click on "Desktop" and  "Downloads" then assert text
   
    Examples: 
       | selections | 

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.google.errorprone.annotations.FormatMethod;
+
 import testBase.BaseClass;
 
 public class SandBoxElements extends BaseClass {
@@ -38,6 +40,16 @@ public class SandBoxElements extends BaseClass {
 	
 	@FindBy (xpath = "//*[@class = 'border col-md-12 col-sm-12']/p")
 	public List<WebElement> outputFromResult;
+	
+	@FindBy (xpath = "//*[@class ='rct-icon rct-icon-expand-close']")
+	public WebElement iconExpandClose;
+	
+	@FindBy(xpath = "//*[@class ='rct-title']")
+	public List<WebElement>  titleCheckBox;
+	
+	
+	@FindBy(xpath = "//*[@class ='display-result mt-4']/span")
+	public List<WebElement>  textFfromResult;
 	
 	/**
 	 * End Elements from 
