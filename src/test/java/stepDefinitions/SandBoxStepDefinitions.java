@@ -1,7 +1,10 @@
 package stepDefinitions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -85,17 +88,27 @@ public class SandBoxStepDefinitions extends CommonMethods{
 		Thread.sleep(1000);
 	}
 	
-	@Then("select iconExpandClose then click on {string} and  {string} then assert text")
-	public void select_iconExpandClose_then_click_on_and_then_assert_text(String string1, String string2) {
-	    
+	@Then("select iconExpandClose then click on {string} and  {string} then assert text {string}")
+	public void select_iconExpandClose_then_click_on_and_then_assert_text(String string1, String string2, String string3) {
+	  
 		click(sandBoxElements.iconExpandClose);
 	
 		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string1);
 		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string2);
 		
+		List<String> act = new ArrayList<String>();
 		List<WebElement> text = sandBoxElements.textFfromResult;
+		for(WebElement textResultEach: text) {
+			act.add(textResultEach.getText());
+		}
+		System.out.println(act.toString());
 		
-	
+		
+		System.out.println(act.size() + "   This is size!!!!!!");
+		String[] expected = {string3};
+		
+       
+	Assert.assertArrayEquals(expected, act.toArray());
 	}}
 
 
