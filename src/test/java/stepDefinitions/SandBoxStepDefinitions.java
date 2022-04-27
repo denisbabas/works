@@ -93,7 +93,8 @@ public class SandBoxStepDefinitions extends CommonMethods{
 		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string1);
 		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string2);
 		
-		//List<WebElement> text = sandBoxElements.textFfromResult;
+		List<WebElement> text = sandBoxElements.textFfromResult;
+		
 	
 	}}
 
