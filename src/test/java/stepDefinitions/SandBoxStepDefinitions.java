@@ -1,10 +1,8 @@
 package stepDefinitions;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -55,12 +53,13 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	@Then("assert text from output {string}, {string}, {string} and {string}")
 	public void assert_text_from_output_and(String fullName, String email, String currentAdress, String permanentAdress) {
 		
-		List<String> expect = new ArrayList<String>();
-		expect.add("Name:" + fullName);
-		expect.add("Email:" + email);
-		expect.add("Current Address :" + currentAdress);
-		expect.add("Permananet Address :" + permanentAdress);
 		
+//		List<String> expect = new ArrayList<String>();
+//		expect.add("Name:" + fullName);
+//		expect.add("Email:" + email);
+//		expect.add("Current Address :" + currentAdress);
+//		expect.add("Permananet Address :" + permanentAdress);
+	//	String a = fullName + email + currentAdress + permanentAdress;
 		
 		List<String> act = new ArrayList<String>();
 		List<WebElement>  result = sandBoxElements.outputFromResult;
@@ -68,7 +67,12 @@ public class SandBoxStepDefinitions extends CommonMethods{
 			
 			act.add(result2.getText());
 			
-		}Assert.assertEquals("!!!!!!", expect, act);
+		}
+		 String res = String.join("", act);
+		
+		
+		 Assert.assertTrue(
+							res.contentEquals("Name:" +  fullName +"Email:"+ email+"Current Address :" + currentAdress+ "Permananet Address :" + permanentAdress));
 		
 }
 	
@@ -89,7 +93,7 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	}
 	
 	@Then("select iconExpandClose then click on {string} and  {string} then assert text {string}")
-	public void select_iconExpandClose_then_click_on_and_then_assert_text(String string1, String string2, String string3) {
+	public void select_iconExpandClose_then_click_on_and_then_assert_text(String string1, String string2, String string3) throws Throwable {
 	  
 		click(sandBoxElements.iconExpandClose);
 	
@@ -97,20 +101,27 @@ public class SandBoxStepDefinitions extends CommonMethods{
 		CommonMethods.selectValueFromBootStrapDropDown(sandBoxElements.titleCheckBox, string2);
 		
 		List<String> act = new ArrayList<String>();
+		
 		List<WebElement> text = sandBoxElements.textFfromResult;
-		for(WebElement textResultEach: text) {
-			act.add(textResultEach.getText());
+		for(int e = 0; e < text.size(); e++) {
+		act.add(text.get(e).getText());
+			
 		}
-		System.out.println(act.toString());
 		
 		
-		System.out.println(act.size() + "   This is size!!!!!!");
-		String[] expected = {string3};
+		List<String> exp = new ArrayList<String>(Arrays.asList(string3));
+		Thread.sleep(1000);
+	
+        String res = String.join("", exp);
+		System.out.println(res);
+		System.out.println(string3);
 		
-       
-	Assert.assertArrayEquals(expected, act.toArray());
-	}}
+		Assert.assertTrue(
+				res.contentEquals(string3));
+		
 
+	}
+}
 
 
 

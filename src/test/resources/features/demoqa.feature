@@ -1,6 +1,6 @@
 Feature: Task2
 
-  @Smoke @Denys
+  @Progression @Denys
   Scenario Outline: ShipWorks user story
     Given select the "<selections>"
     When select "Text Box" fill out to "<fullName>", "<email>", "<currentAdress>" and "<permanentAdress>" and click submit btn
@@ -10,12 +10,13 @@ Feature: Task2
       | Elements   |    10 | Tamara   | Tamara@gmail.com | Miami, FL     | NewYork, NY     |
 
       
-  @Progression @Denys
+  @Smoke @Denys
   Scenario Outline: user story two
   Given select the "<selections>"
   When navigate "Check Box"
-  Then select iconExpandClose then click on "Desktop" and  "Downloads" then assert text "You have selected : desktop, notes, commands, downloads, wordFile, excelFile"
+  Then select iconExpandClose then click on "Desktop" and  "Downloads" then assert text "You have selected :, desktop, notes, commands, downloads, wordFile, excelFile"
   
    Examples: 
       | selections | 
       | Elements   |
+	
