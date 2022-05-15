@@ -45,7 +45,8 @@ Feature: Task2
     Given select the "<selections>"
     When navigate to element group  "<group>"
     Then navigate "Alerts"
+    And click on click Me button  number fourth send "<text>" and assert this
 
     Examples: 
-      | selections | group                   |
-      | Elements   | Alerts, Frame & Windows |
+      | selections | group                   | text  |
+      | Elements   | Alerts, Frame & Windows | Denys |

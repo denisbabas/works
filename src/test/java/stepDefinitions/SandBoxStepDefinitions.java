@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 
 import io.cucumber.java.en.Given;
@@ -159,6 +160,19 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	@Then("click on New Window")
 	public void click_on_New_Window() {
 	    click(sandBoxElements.newWindowButton);
+	}
+	@Then("click on click Me button  number fourth send {string} and assert this")
+	public void click_on_click_Me_button_number_fourth_send_and_assert_this(String string) throws Throwable {
+	    
+	
+	    sandBoxElements.ClickMeButton4.click();
+	    Thread.sleep(2000);
+	    Alert alert =  driver.switchTo().alert();
+	    alert.sendKeys(string);
+	    alert.accept();
+//	    Assert.assertTrue(
+//				sandBoxElements.promptResult.getText().contentEquals("" + string));
+	 System.out.println(sandBoxElements.promptResult.toString());   
 	}
 	
 	

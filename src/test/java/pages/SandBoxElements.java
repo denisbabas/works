@@ -59,6 +59,12 @@ public class SandBoxElements extends BaseClass {
 	@FindBy (xpath =  "//*[@class = 'mt-4 btn btn-primary']")
 	public WebElement  newWindowButton;
 	
+	@FindBy (xpath = "(//*[@class = 'btn btn-primary'])[4]")
+	public WebElement ClickMeButton4;
+	
+	@FindBy (id = "promptResult")
+	public WebElement promptResult;
+	
 	/**
 	 * End Elements from 
 	 */
