@@ -170,9 +170,9 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	    Alert alert =  driver.switchTo().alert();
 	    alert.sendKeys(string);
 	    alert.accept();
-//	    Assert.assertTrue(
-//				sandBoxElements.promptResult.getText().contentEquals("" + string));
-	 System.out.println(sandBoxElements.promptResult.toString());   
+	    Assert.assertTrue(
+				sandBoxElements.promptResult.getText().contentEquals("You entered " + string));
+	
 	}
 	
 	

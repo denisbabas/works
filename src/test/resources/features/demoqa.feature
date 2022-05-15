@@ -40,7 +40,7 @@ Feature: Task2
     And click on New Window
     When Window is open get text from page and assert with String "This is a sample page"
 
-  @Progression @Denys
+  @Smoke @Denys
   Scenario Outline: user story fifth
     Given select the "<selections>"
     When navigate to element group  "<group>"
