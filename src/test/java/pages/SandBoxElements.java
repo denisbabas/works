@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.google.errorprone.annotations.FormatMethod;
-
 import testBase.BaseClass;
 
 public class SandBoxElements extends BaseClass {
@@ -15,7 +13,8 @@ public class SandBoxElements extends BaseClass {
 /**
  * Beginning Elements from 
  */
-	
+	@FindBy (xpath = "//*[@class ='header-text']")
+	public List<WebElement> groupElement;
 	                
 	@FindBy(xpath = "//*[@class = 'card-body']")
 	public List <WebElement> groupHeaderDropDown;
@@ -50,6 +49,15 @@ public class SandBoxElements extends BaseClass {
 	
 	@FindBy(xpath = "//*[@class ='display-result mt-4']/span")
 	public List<WebElement>  textFfromResult;
+	
+	@FindBy (id = "tabButton")
+	public WebElement tabButton;
+	
+	@FindBy (id = "sampleHeading")
+	public WebElement sampleHeading;
+	
+	@FindBy (xpath =  "//*[@class = 'mt-4 btn btn-primary']")
+	public WebElement  newWindowButton;
 	
 	/**
 	 * End Elements from 

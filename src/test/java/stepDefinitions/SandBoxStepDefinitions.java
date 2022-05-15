@@ -78,12 +78,13 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	
 	@When("navigate {string}")
 	public void navigate(String string) throws Throwable {
-		  
-		List<WebElement>  Selections2 = sandBoxElements.menuListDropDown;
 		
+	 
+		List<WebElement>  Selections2 = sandBoxElements.menuListDropDown;
+
 		
 		for(WebElement Selection : Selections2) {
-			
+			JsCommonMethods.scrollIntoView(Selection);
 			if(Selection.getText().equalsIgnoreCase(string)) {
 		
 				Selection.click();
@@ -121,10 +122,55 @@ public class SandBoxStepDefinitions extends CommonMethods{
 		
 
 	}
-}
+	@When("navigate to element group  {string}")
+	public void navigate_to_element_group(String groups) throws Throwable {
+		
+	    List<WebElement> groupHeader = sandBoxElements.groupElement;
+	    
+//	    for(int e = 0; e< groupHeader.size(); e++) {
+//	    	
+//			if(groupHeader.get(e).getText().equals(groups)) {
+//				groupHeader.get(e).click();
+//				break;
+//			}
+//	    		
+	    	
+
+	    for(WebElement Selection : groupHeader) {
+			JsCommonMethods.scrollIntoView(Selection);
+			if(Selection.getText().equalsIgnoreCase(groups)) {
+		
+				Selection.click();
+				break;
+			}Thread.sleep(1000);
+		}}
+	@Then("click on tabButton")
+	public void click_on_tabButton() {
+	    sandBoxElements.tabButton.click();
+	}
+	
+	@When("Window is open get text from page and assert with String {string}")
+	public void Window_is_open_get_text_from_page_and_assert_with_String(String Text) {
+	    CommonMethods.switchToChildWindow();
+	    Assert.assertTrue(
+				sandBoxElements.sampleHeading.getText().contentEquals(Text));
+	}
+	
+	@Then("click on New Window")
+	public void click_on_New_Window() {
+	    click(sandBoxElements.newWindowButton);
+	}
+	
+	
+	}
 
 
 
 
 
+
+	
+
+
+	
 	
