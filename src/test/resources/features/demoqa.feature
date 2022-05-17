@@ -50,3 +50,14 @@ Feature: Task2
     Examples: 
       | selections | group                   | text  |
       | Elements   | Alerts, Frame & Windows | Denys |
+
+  @Progression @Denys
+  Scenario Outline: user story fifth
+    Given select the "<selections>"
+    When navigate to element group  "<group>"
+    Then navigate "Frames"
+    And draw red border on a first iFrame and draw blue border on second and get get text 
+
+    Examples: 
+      | selections | group                   |
+      | Elements   | Alerts, Frame & Windows |

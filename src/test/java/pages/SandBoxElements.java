@@ -65,6 +65,10 @@ public class SandBoxElements extends BaseClass {
 	@FindBy (id = "promptResult")
 	public WebElement promptResult;
 	
+	@FindBy (xpath = "//*[@id ='sampleHeading']")
+	public WebElement iFrameSamplePage;
+	
+	
 	/**
 	 * End Elements from 
 	 */

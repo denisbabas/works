@@ -164,8 +164,7 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	@Then("click on click Me button  number fourth send {string} and assert this")
 	public void click_on_click_Me_button_number_fourth_send_and_assert_this(String string) throws Throwable {
 	    
-	
-	    sandBoxElements.ClickMeButton4.click();
+		sandBoxElements.ClickMeButton4.click();
 	    Thread.sleep(2000);
 	    Alert alert =  driver.switchTo().alert();
 	    alert.sendKeys(string);
@@ -173,6 +172,18 @@ public class SandBoxStepDefinitions extends CommonMethods{
 	    Assert.assertTrue(
 				sandBoxElements.promptResult.getText().contentEquals("You entered " + string));
 	
+	}
+	
+	@Then("draw red border on a first iFrame and draw blue border on second and get get text")
+	public void draw_red_border_on_a_first_iFrame_and_draw_blue_border_on_second_and_get_get_text() {
+	    CommonMethods.swithToFrame("frame1");
+	    JsCommonMethods.drawRedBorder(sandBoxElements.iFrameSamplePage);
+	    driver.switchTo().defaultContent();
+	    CommonMethods.swithToFrame("frame2");
+	    JsCommonMethods.scrollDown(300);
+	    JsCommonMethods.drawBlueBorder(sandBoxElements.iFrameSamplePage);
+	    System.out.println(sandBoxElements.iFrameSamplePage.getText() + " --> This is text from frame 2");
+	    
 	}
 	
 	
